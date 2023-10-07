@@ -13,6 +13,6 @@ label.text(r)
 
 def test(id):
     data = {"id" : id}
-    r = requests.post("http://10.183.235.231:3000/api/post_test",json=data)
+    r = requests.post("https://focus-sequencer-401321.uc.r.appspot.com/api/post_test",json=data)
     
     return r.content
