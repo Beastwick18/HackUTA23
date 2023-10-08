@@ -1,4 +1,4 @@
-import clientPromise from "../../lib/mongodb";
+import clientPromise from "@/lib/mongodb";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -9,7 +9,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     });
     let response = "err";
     const call = async () => {
-      var b64str = req.body
+      var b64str = req.body['image']
+      var username = req.body['username']
+      console.log(username)
       var buf = Buffer.from(b64str)
       // const response = await visionClient.batchAnnotateImages(request);
       const request = {
@@ -25,6 +27,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         labels.forEach((label: any) => { console.log(label.description) });
       } catch (err: any) {
         console.error(err)
+      }
+      try {
+        const client = await clientPromise;
+        const db = client.db("hackuta");
+        db.collection("images").insertOne({ username: username, image: b64str })
+      } catch (err: any) {
+        console.log(err)
       }
       res.status(200).json({ data: response })
     }
