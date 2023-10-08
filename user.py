@@ -23,7 +23,7 @@ with con.container():
     data = {"id" : room_id}
 
     if s:
-        r = requests.post("http://10.183.235.231:3000/api/join_player",json=d)
+        r = requests.post("https://focus-sequencer-401321.uc.r.appspot.com/api/join_player",json=d)
         if r.status_code == 200:
             u = st.empty()
             t = st.empty()
@@ -34,7 +34,7 @@ with con.container():
             long_before = ""
             while(True):
                 long_before = long
-                r = requests.get("http://10.183.235.231:3000/api/room_info", json=data)
+                r = requests.get("https://focus-sequencer-401321.uc.r.appspot.com/api/room_info", json=data)
                 j = json.loads(r.content)
                 long = ""
                 for a in j["data"]:
@@ -46,11 +46,11 @@ with con.container():
                     with d.container():
                         for strr in j["data"]:                                  
                             d.write(strr["username"])
-                new_r = requests.get("http://10.183.235.231:3000/api/room_status", json=data)
+                new_r = requests.get("https://focus-sequencer-401321.uc.r.appspot.com/api/room_status", json=data)
                 if int(new_r.content.decode()) == 1:
                     break
 try:        
-    response = requests.post("http://10.183.235.231:3000/api/entry_info", json={"id":room_id})
+    response = requests.post("https://focus-sequencer-401321.uc.r.appspot.com/api/entry_info", json={"id":room_id})
     result = json.loads(response.content)["data"]
     st.image(base64.b64decode(result["image"]))
     genre = st.radio("Pick an object", result["labels"])
@@ -61,7 +61,7 @@ try:
             st.markdown("""
                         <style>
                             .stApp {
-                                background-color: #33CCCC;
+                                background-color: #008000;
                             }
                         <style/>
                         """,unsafe_allow_html=True)
@@ -70,7 +70,7 @@ try:
             st.markdown("""
             <style>
                 .stApp {
-                    background-color: #33CCAC;
+                    background-color: #ff0000;
                 }
             <style/>
             """,unsafe_allow_html=True)
