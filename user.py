@@ -29,6 +29,7 @@ if s:
             long = ""
             for a in j["data"]:
                 long+=a["username"]
+            time.sleep(1)
             if long != long_before:
                 c.empty()
                 d = c.container()
@@ -36,8 +37,7 @@ if s:
                     for strr in j["data"]:                                  
                         d.write(strr["username"])
             new_r = requests.get("http://10.183.235.231:3000/api/room_status", json=data)
-            if new_r.content.decode() == 1:
+            if int(new_r.content.decode()) == 1:
                 break
-            time.sleep(1)
         
             

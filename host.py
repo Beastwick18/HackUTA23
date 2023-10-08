@@ -3,22 +3,23 @@ import requests
 import time 
 import json
 
-room_id = 0
-
 #Create room
-def create_room():
-    r = requests.get("http://10.183.235.231:3000/api/create_entry")
-    print(r.content)
-    if r.status_code == 200:
-        global room_id
-        room_id = r.content.decode()
+@st.cache_resource
+def create_game():
+    room_id = 0
+    room = requests.get("http://10.183.235.231:3000/api/create_entry")
+    print(room.content)
+    if room.status_code == 200:
+        room_id = room.content.decode()
+        return room_id
     else:
         print("Error")
-    
+        return 0
+
 #Wait for players
-create_room()
+room_id = create_game()
+i = st.text("Room id: "+ str(room_id))
 data = {"id": room_id}
-i = st.text("Room id: "+room_id)
 st.text("Players: ")
 c = st.empty()
 long = ""
@@ -38,9 +39,7 @@ while(True):
             for strr in j["data"]:                                  
                 d.write(strr["username"])
     if start:
-        new_r = requests.post("http://10.183.235.231:3000/api/room_status", json=data)
+        new_r = requests.post("http://10.183.235.231:3000/api/room_start", json=data)
         break
     time.sleep(1)
-    
-
-    
+        
