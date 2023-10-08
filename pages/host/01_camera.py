@@ -10,7 +10,7 @@ with (open("data.json","r")) as f:
 
 if picture:
     data ={"image": base64.b64encode(picture.getvalue()), "username": "potato"} 
-    r = requests.post("http://10.183.235.231:3000/api/upload_image", data)
+    r = requests.post("https://hackuta23-8snbt8yuwk7gbtvchfnu7s.streamlit.app/api/upload_image", data)
     
     info = json.loads(r.content)
     ts = ""
@@ -26,6 +26,6 @@ if picture:
 next = st.button("Proceed")
 if next:
     data = {"id": config["room_id"], "roundItem" : genre}
-    r = requests.post("http://10.183.235.231:3000/api/set_round_item", data)
+    r = requests.post("https://hackuta23-8snbt8yuwk7gbtvchfnu7s.streamlit.app/api/set_round_item", data)
     
     

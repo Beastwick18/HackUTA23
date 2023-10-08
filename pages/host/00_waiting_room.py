@@ -17,7 +17,7 @@ def create_game():
     import streamlit_book as stb
     
     room_id = 0
-    room = requests.get("http://10.183.235.231:3000/api/create_entry")
+    room = requests.get("https://hackuta23-8snbt8yuwk7gbtvchfnu7s.streamlit.app/api/create_entry")
     print(room.content)
     if room.status_code == 200:
         room_id = room.content.decode()
@@ -41,7 +41,7 @@ def waiting_loop(data, start):
     long_before = ""
     while(True):
         long_before = long
-        r = requests.get("http://10.183.235.231:3000/api/room_info", json=data)
+        r = requests.get("https://hackuta23-8snbt8yuwk7gbtvchfnu7s.streamlit.app/api/room_info", json=data)
         j = json.loads(r.content)
         long = ""
         for a in j["data"]:
@@ -53,7 +53,7 @@ def waiting_loop(data, start):
                 for strr in j["data"]:                                  
                     d.write(strr["username"])
         if start:
-            new_r = requests.post("http://10.183.235.231:3000/api/room_start", json=data)
+            new_r = requests.post("https://hackuta23-8snbt8yuwk7gbtvchfnu7s.streamlit.app/api/room_start", json=data)
             break
         time.sleep(1)
     return
