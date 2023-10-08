@@ -35,7 +35,7 @@ with con.container():
             while(True):
                 long_before = long
                 r = requests.get("https://focus-sequencer-401321.uc.r.appspot.com/api/room_info", json=data)
-                j = json.loads(r.content)
+                j = json.loads(r.content)["data"]
                 long = ""
                 for a in j["data"]:
                     long+=a["username"]
