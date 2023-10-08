@@ -1,4 +1,5 @@
 import App from "@/components/App";
+import MongoTest from "@/components/MongoTest";
 
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
       <div className='w-fit flex flex-col items-center'>
         <h1 className="">Enter your code</h1>
         <App />
+        <MongoTest />
       </div>
     </main>
   )

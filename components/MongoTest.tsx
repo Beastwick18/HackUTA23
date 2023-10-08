@@ -1,28 +1,34 @@
 "use client";
 
 import { MongoClient, ServerApiVersion } from "mongodb";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-type MongoTestProps = {
-  client: MongoClient
-}
 
-const MongoTest: React.FC<MongoTestProps> = ({ client }) => {
+const MongoTest = () => {
+  const [data, setData] = useState(null)
   const getMongo = async () => {
-    try {
-      await client.connect()
-      await client.db("admin").command({ ping: 1 })
-      console.log('wowzers')
-    } finally {
-      await client.close()
+    const d = {
+      id: 5002
     }
+    const res = await fetch("/api/room_info", {
+      method: "POST",
+      body: JSON.stringify(d)
+    })
+    const json = await res.json()
+    setData(json['data'])
+    console.log(json)
+    console.log(JSON.stringify(d))
   }
   useEffect(() => {
     const result = getMongo().catch(console.error)
     console.log(result)
   }, []);
   return (
-    <div></div>
+    <div>
+      {
+        data ? data : "asd"
+      }
+    </div>
   )
 }
 
