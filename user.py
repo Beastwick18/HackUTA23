@@ -26,7 +26,6 @@ if s:
             long_before = long
             r = requests.get("http://10.183.235.231:3000/api/room_info", json=data)
             j = json.loads(r.content)
-            print(j)
             long = ""
             for a in j["data"]:
                 long+=a["username"]
@@ -34,10 +33,11 @@ if s:
                 c.empty()
                 d = c.container()
                 with d.container():
-                    
-                    for strr in j["data"]:      
-                        print(strr)                              
-                        d.write("    " + strr["username"])
-
+                    for strr in j["data"]:                                  
+                        d.write(strr["username"])
+            new_r = requests.get("http://10.183.235.231:3000/api/room_status", json=data)
+            if new_r.content.decode() == 1:
+                break
             time.sleep(1)
+        
             

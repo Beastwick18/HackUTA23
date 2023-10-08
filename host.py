@@ -17,14 +17,30 @@ def create_room():
     
 #Wait for players
 create_room()
+data = {"id": room_id}
 i = st.text("Room id: "+room_id)
 st.text("Players: ")
-c = st.container()
+c = st.empty()
+long = ""
+long_before = ""
+start = st.button("Start game")
 while(True):
-    r = requests.get("http://10.183.235.231:3000/api/room_info")
+    long_before = long
+    r = requests.get("http://10.183.235.231:3000/api/room_info", json=data)
     j = json.loads(r.content)
+    long = ""
     for a in j["data"]:
-        c.add_rows(a)
+        long+=a["username"]
+    if long != long_before:
+        c.empty()
+        d = c.container()
+        with d.container():
+            for strr in j["data"]:                                  
+                d.write(strr["username"])
+    if start:
+        new_r = requests.post("http://10.183.235.231:3000/api/room_status", json=data)
+        break
     time.sleep(1)
-    c = st.empty()
+    
+
     
