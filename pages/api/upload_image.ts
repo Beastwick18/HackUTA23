@@ -4,18 +4,32 @@ import { NextApiRequest, NextApiResponse } from "next";
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { ImageAnnotatorClient } = require('@google-cloud/vision').v1;
-    const visionClient = new ImageAnnotatorClient();
+    const visionClient = new ImageAnnotatorClient({
+      keyFilename: "./api.json"
+    });
+    let response = "err";
     const call = async () => {
       var b64str = req.body
-      var buf = Buffer.from(b64str, "base64")
+      var buf = Buffer.from(b64str)
+      // const response = await visionClient.batchAnnotateImages(request);
       const request = {
-        buf
+        image: {
+          content: b64str
+        }
       }
-      const response = await visionClient.batchAnnotateImages(request);
-      console.log(response)
+      try {
+        const results = await visionClient.labelDetection(request)
+        const labels = results[0].labelAnnotations
+        response = labels
+        console.log("labels:")
+        labels.forEach((label: any) => { console.log(label.description) });
+      } catch (err: any) {
+        console.error(err)
+      }
+      res.status(200).json({ data: response })
     }
-    call()
-    console.log(req.body)
+    await call()
+    res.status(200).send(response)
 
   } catch (e) {
     console.error(e);

@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "focus-sequencer-401321",
+  "private_key_id": "1daa79cf3a94ebe2ad02bfc5f1acc5b28ca31c52",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCswQXwMDWsDHHp\n+43o5dY+FEFjQYVwc6sHT3xfQeWhUnZi3f3YWPNXsTkw4MoEcowDAQ8fVaM4bWYI\nCB/BS1Uf6alxTuRLdnO7AzxQpEWldFou0ytktflXR2ynX4V+0TrFLCXmsyLGfCKN\nV80lMcdV2tPHeSiFPsY3WcWjA45lzOVfFFTREJxyEo/5aonDudhSe/zfJJbO9Fmb\nQD4rb5k8ORUoQIb1hDNz2w/aZyP9odbwdHCmxiUPS/bsGj+VniXabIhYhtctjQC8\ncXRKLexp+0tvCpAJyNf2KhDRtxwVsExbXIoxLpLmc+SdsWh3St8lYJ0Zx3AsfDiD\nTqscv/CfAgMBAAECggEAIdjl2XQQqAd+MDp1yPpzOhGM6C4Xv3siONn1g9Js8+ks\nwd091axD7VwPWQjJ/AoXbaVA+cI1KyKgGZXB5wTkBk8pQEaVS0XHkg4lvKUa8jp0\nSvVb7K0Mz/FyE+8OwFStP6GRQXy6pQoAWRIpYw64QBWSZeRSsJymiITByNkzBrXF\nsh00OQLh30VIwakuaTTbt1k0/ApoJTRTDurNMhe2uMtUce1ItVLcCYoBWw4xFbyl\n7AnQSDB3m1CPf5mr+wr+QfXiwzVffwFQ/8aOorfxr7B/96vFLZU87O43OprsA3WK\nVtZL/2gsMP7A1cH7/6bal0S80ccWqq9Il9syxHtTSQKBgQDzyBkGG8qOzQwXF9RW\nhny9lYcegl5kkRkAeFgw5AjxxEdQQGd9ThX9jH5R9c2niucAGTgLH3yy94uY63nP\nOiqJ2fzF0fH02IaUBtDAzgPvj9DUlyzPxPRW/squSnmVlhl5kIHwCCDMQegWHF0V\nBlPwzyaamXAcwZ9ivanHfTy8NwKBgQC1aZZZo6MpOWwwl02Riwb1EroHMr/VKfXb\n6u+0lOhWajJmXqCdEMGCgOAtkYLx1ARxcqZD5RM9w0Fkh1EwItno4R9t+Kr66CSy\n4rbF5rcc8q9APhkWGaiK7nAjgFRFYwS6zP6SWdsiW/T3ooSbqPhmyIS2LrihC908\n+5FRj8fK2QKBgAWUYt487JnwH4K3zOheE6TTM1CDc12h5IyaNIqJ7Zp6/5baooO/\nsckn2gxOL/LRvw/Fg/7dLaF7APrzCMqxbh/RmXN9pqgP/KSOs2B2Vqi5BfKXszLe\nMyl6k3EBy16dHOAnapHv3bBPIdy/sXG1v14Xn66SLHq8A8XiyWwDdcxpAoGABs87\n0YmO6lE5emlzg+8QB8r4KKUDBmFY1TRwYvrj7bp2wdjzdnHWkat8vrkjjShEMm33\nR70lh7/4iGl75q6oN1Gb+GjJIjnshrpz2eHbJb8GTQcHsgishuqEUxDSGPiqiMiB\nFcVBsHx7KYB0MdOZ32HPeXcvfvwPBeb7gXBAM6ECgYEAkS3Y7OhCpT+FwWJ49Zlg\n8qo/8EsYvjvlcTPbZF4o2+VjQoiFt/3juk8KzEpZKgjYjuDJQIPpd9Vn65ZNv6Hm\nq60LYqh8A/X3DvqMjuuouyach6ORLtJVlQAN/bo28NwmLUpLluE8UwhYPeNNo12s\nnjM9fXRksxz2dwKcpAlvVvU=\n-----END PRIVATE KEY-----\n",
+  "client_email": "focus-sequencer-401321@appspot.gserviceaccount.com",
+  "client_id": "103124552044738788880",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/focus-sequencer-401321%40appspot.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
