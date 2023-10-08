@@ -13,6 +13,8 @@ room_id = t
 data = {"id" : room_id}
 
 if s:
+    with open("data.json", "w") as f:
+        json.dump({"username" : u},f)
     r = requests.post("http://10.183.235.231:3000/api/join_player",json=d)
     if r.status_code == 200:
         u = st.empty()
