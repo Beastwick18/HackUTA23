@@ -9,23 +9,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const client = await clientPromise;
     const db = client.db("hackuta");
+    const image = req.body["image"]
+    const labels = req.body["labels"]
+    const selected = req.body["selected"]
 
     let rando = getRandomInt(9999)
+    db.collection("rooms").insertOne({ id: rando, playing: 0, image: image, labels: labels, selected: selected })
     res.status(200).send(rando)
-    db.collection("rooms").insertOne({ id: rando, playing: 0, roundItem: "", playing: 0 })
-    // break;
-    //   }
-    //   attempts++;
-    // }
-    // if (attempts == 5) {
-    //   res.status(400).send("err")
-    // }
-    // const movies = await db
-    //   .collection("rooms")
-    //   .find({})
-    //   .sort({ metacritic: -1 })
-    //   .limit(10)
-    //   .toArray();
   } catch (e) {
     res.status(400).send("err")
     console.error(e);
