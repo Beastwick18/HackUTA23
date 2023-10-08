@@ -86,4 +86,7 @@ if picture:
         st.text("Players: ")
         start = st.button("Start game")
         requests.post("https://focus-sequencer-401321.uc.r.appspot.com/api/room_start", json={"id" : room_id})
-        waiting_loop({"id": room_id}, start)
+        try:
+            waiting_loop({"id": room_id}, start)
+        except:
+            pass 
