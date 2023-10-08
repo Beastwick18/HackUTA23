@@ -40,4 +40,5 @@ if s:
             if int(new_r.content.decode()) == 1:
                 break
         
-            
+        while(True):
+            break
